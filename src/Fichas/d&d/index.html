@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site Vermelho</title>
+    
+    <!-- Adicione a linkagem para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Estilos para o cabeçalho */
+        header {
+            background-color: red;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilos para o rodapé */
+        footer {
+            background-color: red;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Estilos para as fichas */
+        .ficha {
+            border: none; /* Remova a borda */
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(249, 249, 249, 0.8); /* Defina a transparência */
+            border-radius: 10px; /* Arredonde as bordas */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-danger text-white">
+        <h1>Bem-vindo ao Meu Site</h1>
+    </header>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Ficha do Personagem 1 -->
+                <div class="ficha">
+                    <p>Caso tenha alguma dúvida basta clicar no ícone de "?"</p>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <!-- Campo de entrada para o nome -->
+                            <div class="form-group">
+                                <label for="nomePersonagem">Nome do Personagem:</label>
+                                <input type="text" class="form-control" id="nomePersonagem">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="racaPersonagem">Raça do Personagem:</label>
+                                <select class="form-control" id="racaPersonagem">
+                                    <option value="Anão">Anão</option>
+                                    <option value="Elfo">Elfo</option>
+                                    <option value="Humano">Humano</option>
+                                    <option value="Pequenino">Pequenino</option>
+                                    <option value="Draconato">Draconato</option>
+                                    <option value="Gnomo">Gnomo</option>
+                                    <option value="Meio-Elfo">Meio-Elfo</option>
+                                    <option value="Meio-Orc">Meio-Orc</option>
+                                    <option value="Tieflings">Tieflings</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Campo de seleção do antecedente de classe, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="antecedenteClasse">Antecedente de Classe:</label>
+                                <select class="form-control" id="antecedenteClasse" disabled>
+                                    <option value="">Selecione uma classe primeiro</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <!-- Selecione a classe do personagem -->
+                            <div class="form-group">
+                                <label for="classePersonagem">Classe do Personagem:</label>
+                                <select class="form-control" id="classePersonagem">
+                                    <option value="Bárbaro">Bárbaro</option>
+                                    <option value="Bardo">Bardo</option>
+                                    <option value="Bruxo">Bruxo</option>
+                                    <option value="Clérigo">Clérigo</option>
+                                    <option value="Druida">Druida</option>
+                                    <option value="Feiticeiro">Feiticeiro</option>
+                                    <option value="Guardião">Guardião</option>
+                                    <option value="Guerreiro">Guerreiro</option>
+                                    <option value="Ladino">Ladino</option>
+                                    <option value="Mago">Mago</option>
+                                    <option value="Monge">Monge</option>
+                                    <option value="Paladino">Paladino</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Campo de seleção do arquétipo de classe, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="arquetipoClasse">Arquétipo de Classe:</label>
+                                <select class="form-control" id="arquetipoClasse" disabled>
+                                    <option value="">Selecione uma classe primeiro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Adicione mais informações aqui -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Ficha do Personagem 2 -->
+                <div class="ficha">
+                    <p>Caso tenha alguma dúvida basta clicar no ícone de "?"</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Coluna esquerda -->
+                            <p><strong>Nome:</strong> Aventureiro 2</p>
+                            <p><strong>Classe:</strong> Mago</p>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Coluna direita -->
+                            <p><strong>Nível:</strong> 3</p>
+                            <p><strong>Raça:</strong> Elfo</p>
+                        </div>
+                    </div>
+                    <!-- Adicione mais informações aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-danger text-white mt-4">
+        <p>&copy; 2023 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para habilitar ou desabilitar as opções de sub-raça com base na raça selecionada
+        document.getElementById('racaPersonagem').addEventListener('change', function() {
+            const subRacaSelect = document.getElementById('subRacaPersonagem');
+            const racaSelecionada = this.value;
+            
+            // Mapeamento de raças para sub-raças
+            const subRacas = {
+                'Anão': ['Anão da Colina', 'Anão da Montanha'],
+                'Elfo': ['Alto Elfo', 'Elfo da Floresta', 'Elfo Negro (Drow)'],
+                'Meio-Elfo': ['Não tem sub-raça'],
+                'Halfling': ['Pés Leves', 'Robusto'],
+                'Humanos': ['Não tem sub-raça'],
+                'Draconato': ['Não tem sub-raça'],
+                'Gnomo': ['Gnomo da Floresta', 'Gnomo das Rochas'],
+                'Meio-Orc': ['Não tem sub-raça'],
+                'Tieflings': ['Infernal', 'Abissal']
+            };
+            
+            // Habilitar ou desabilitar o campo de seleção da sub-raça
+            if (racaSelecionada in subRacas) {
+                const subRacasDaRaca = subRacas[racaSelecionada];
+                subRacaSelect.innerHTML = ''; // Limpar opções existentes
+                
+                if (subRacasDaRaca.length === 0) {
+                    subRacaSelect.disabled = true;
+                } else {
+                    subRacaSelect.disabled = false;
+                    subRacasDaRaca.forEach(function(subRaca) {
+                        const option = document.createElement('option');
+                        option.value = subRaca;
+                        option.textContent = subRaca;
+                        subRacaSelect.appendChild(option);
+                    });
+                }
+            } else {
+                subRacaSelect.innerHTML = '<option value="">Selecione uma raça primeiro</option>';
+                subRacaSelect.disabled = true;
+            }
+        });
+
+        // Função para habilitar ou desabilitar as opções de arquétipo de classe com base na classe selecionada
+        document.getElementById('classePersonagem').addEventListener('change', function() {
+            const arquetipoSelect = document.getElementById('arquetipoClasse');
+            const classeSelecionada = this.value;
+            
+            // Mapeamento de classes para arquétipos
+            const arquetipos = {
+                'Bruxo': ['Arquifada', 'Corruptor', 'Grande Antigo'],
+                'Clérigo': ['Conhecimento', 'Enganação', 'Guerra', 'Luz', 'Natureza', 'Tempestade', 'Vida'],
+                'Feiticeiro': ['Linhagem Dracônica', 'Magia Selvagem']
+            };
+            
+            // Habilitar ou desabilitar o campo de seleção do arquétipo de classe
+            if (classeSelecionada in arquetipos) {
+                const arquetiposDaClasse = arquetipos[classeSelecionada];
+                arquetipoSelect.innerHTML = ''; // Limpar opções existentes
+                
+                if (arquetiposDaClasse.length === 0) {
+                    arquetipoSelect.disabled = true;
+                } else {
+                    arquetipoSelect.disabled = false;
+                    arquetiposDaClasse.forEach(function(arquetipo) {
+                        const option = document.createElement('option');
+                        option.value = arquetipo;
+                        option.textContent = arquetipo;
+                        arquetipoSelect.appendChild(option);
+                    });
+                }
+            } else {
+                arquetipoSelect.innerHTML = '<option value="">Selecione uma classe primeiro</option>';
+                arquetipoSelect.disabled = true;
+            }
+        });
+
+        // Função para habilitar ou desabilitar as opções de antecedente de classe com base na classe selecionada
+        document.getElementById('classePersonagem').addEventListener('change', function() {
+            const antecedenteSelect = document.getElementById('antecedenteClasse');
+            const classeSelecionada = this.value;
+            
+            // Mapeamento de classes para antecedentes
+            const antecedentes = {
+                'Bárbaro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Marinheiro', 'Soldado', 'Orfão'],
+                'Bardo': ['Charlatão', 'Criminoso', 'Animador', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Sábio'],
+                'Bruxo': ['Acólito', 'Charlatão', 'Criminoso', 'Animador', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro'],
+                'Clérigo': ['Acólito', 'Animador', 'Herói do Povo', 'Eremita', 'Nobre', 'Sábio'],
+                'Druida': ['Animador', 'Artesão de Guilda', 'Eremita', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado'],
+                'Feiticeiro': ['Charlatão', 'Animador', 'Herói do Povo', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Guardião': ['Criminoso', 'Herói do Povo', 'Marinheiro', 'Sábio', 'Soldado'],
+                'Guerreiro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Ladino': ['Charlatão', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Sábio', 'Soldado', 'Orfão'],
+                'Mago': ['Charlatão', 'Animador', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Sábio'],
+                'Monge': ['Acólito', 'Herói do Povo', 'Eremita', 'Nobre', 'Forasteiro', 'Sábio', 'Soldado'],
+                'Paladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Nobre', 'Soldado']
+            };
+            
+            // Habilitar ou desabilitar o campo de seleção do antecedente de classe
+            if (classeSelecionada in antecedentes) {
+                const antecedentesDaClasse = antecedentes[classeSelecionada];
+                antecedenteSelect.innerHTML = ''; // Limpar opções existentes
+                
+                if (antecedentesDaClasse.length === 0) {
+                    antecedenteSelect.disabled = true;
+                } else {
+                    antecedenteSelect.disabled = false;
+                    antecedentesDaClasse.forEach(function(antecedente) {
+                        const option = document.createElement('option');
+                        option.value = antecedente;
+                        option.textContent = antecedente;
+                        antecedenteSelect.appendChild(option);
+                    });
+                }
+            } else {
+                antecedenteSelect.innerHTML = '<option value="">Selecione uma classe primeiro</option>';
+                antecedenteSelect.disabled = true;
+            }
+        });
+    </script>
+    
+    <!-- Adicione a linkagem para o Bootstrap JS (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
