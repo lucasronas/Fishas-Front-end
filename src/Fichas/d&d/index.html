@@ -59,7 +59,7 @@
                                     <option value="Anão">Anão</option>
                                     <option value="Elfo">Elfo</option>
                                     <option value="Humano">Humano</option>
-                                    <option value="Pequenino">Pequenino</option>
+                                    <option value="Halfling">Halfling</option>
                                     <option value="Draconato">Draconato</option>
                                     <option value="Gnomo">Gnomo</option>
                                     <option value="Meio-Elfo">Meio-Elfo</option>
@@ -67,12 +67,12 @@
                                     <option value="Tieflings">Tieflings</option>
                                 </select>
                             </div>
-                            
-                            <!-- Campo de seleção do antecedente de classe, inicialmente desabilitado -->
+
+                            <!-- Campo de seleção da sub-raça, inicialmente desabilitado -->
                             <div class="form-group">
-                                <label for="antecedenteClasse">Antecedente de Classe:</label>
-                                <select class="form-control" id="antecedenteClasse" disabled>
-                                    <option value="">Selecione uma classe primeiro</option>
+                                <label for="subRacaPersonagem">Sub-Raça do Personagem:</label>
+                                <select class="form-control" id="subRacaPersonagem" disabled>
+                                    <option value="">Selecione uma raça primeiro</option>
                                 </select>
                             </div>
 
@@ -105,9 +105,103 @@
                                     <option value="">Selecione uma classe primeiro</option>
                                 </select>
                             </div>
+
+                            <!-- Campo de seleção do antecedente de classe, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="antecedenteClasse">Antecedente de Classe:</label>
+                                <select class="form-control" id="antecedenteClasse" disabled>
+                                    <option value="">Selecione uma classe primeiro</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!-- Adicione mais informações aqui -->
+                    <!-- Seção "Status" -->
+                    <div class="col-md-6">
+                        <div class="ficha">
+                            <h4>Status</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="forcaStatus">Força (For):</label>
+                                        <select class="form-control" id="forcaStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="destrezaStatus">Destreza (Dez):</label>
+                                        <select class="form-control" id="destrezaStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="constituicaoStatus">Constituição (Con):</label>
+                                        <select class="form-control" id="constituicaoStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="inteligenciaStatus">Inteligência (Int):</label>
+                                        <select class="form-control" id="inteligenciaStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="sabedoriaStatus">Sabedoria (Sab):</label>
+                                        <select class="form-control" id="sabedoriaStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="carismaStatus">Carisma (Car):</label>
+                                        <select class="form-control" id="carismaStatus">
+                                            <option value="15">15</option>
+                                            <option value="14">14</option>
+                                            <option value="13">13</option>
+                                            <option value="12">12</option>
+                                            <option value="10">10</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -218,18 +312,18 @@
             
             // Mapeamento de classes para antecedentes
             const antecedentes = {
-                'Bárbaro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Marinheiro', 'Soldado', 'Orfão'],
-                'Bardo': ['Charlatão', 'Criminoso', 'Animador', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Sábio'],
-                'Bruxo': ['Acólito', 'Charlatão', 'Criminoso', 'Animador', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro'],
-                'Clérigo': ['Acólito', 'Animador', 'Herói do Povo', 'Eremita', 'Nobre', 'Sábio'],
-                'Druida': ['Animador', 'Artesão de Guilda', 'Eremita', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado'],
-                'Feiticeiro': ['Charlatão', 'Animador', 'Herói do Povo', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Guardião': ['Criminoso', 'Herói do Povo', 'Marinheiro', 'Sábio', 'Soldado'],
+                'Bárbaro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Bardo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Bruxo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Clérigo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Druida': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Feiticeiro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Guardião': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
                 'Guerreiro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Ladino': ['Charlatão', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Sábio', 'Soldado', 'Orfão'],
-                'Mago': ['Charlatão', 'Animador', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Sábio'],
-                'Monge': ['Acólito', 'Herói do Povo', 'Eremita', 'Nobre', 'Forasteiro', 'Sábio', 'Soldado'],
-                'Paladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Nobre', 'Soldado']
+                'Ladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Mago': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Monge': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
+                'Paladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
             };
             
             // Habilitar ou desabilitar o campo de seleção do antecedente de classe
