@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tela de Login</title>
+        <!-- Importando a folha de estilo do Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>    
+
+            /* Redefinindo as configurações padrão para todos os elementos */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Configuração de fundo da página */
+            body {
+                background-image: url(https://mesaderpg.com.br/wp-content/uploads/2021/10/Rpg-de-Mesa.png);
+                background-size: cover;
+                background-repeat: no-repeat; /* Para evitar repetição da imagem */
+                font-size: 14px; /* Tamanho da fonte padrão */
+            }
+
+            /* Configuração do contêiner principal */
+            .container {
+                height: 100vh; /* 100% da altura da tela */
+                display: flex;
+                justify-content: center; /* Centraliza horizontalmente */
+                align-items: center; /* Centraliza verticalmente */
+            }
+
+            /* Estilo do contêiner do formulário */
+            .form-container {
+                background-color: rgba(242, 242, 242, 0.6); /* Fundo com opacidade */
+                padding: 50px; /* Espaçamento interno do formulário */
+                border-radius: 10px; /* Cantos arredondados */
+            }            
+
+            /* Ocultar o formulário de cadastro por padrão */
+            #cadastro-form {
+                display: none;
+            }
+
+            /* Estilizando as etiquetas dos campos do formulário */
+            label {
+                font-weight: bold; /* Texto em negrito */
+            }
+
+            /* Estilo dos campos de entrada de texto */
+            .input-lg {
+                width: 100%; /* Largura completa */
+                border-radius: 10px; /* Cantos arredondados */
+            }                       
+
+            /* Estilo para os botões */
+            .btn-group {
+                display: flex;
+                justify-content: space-between; /* Espaçamento uniforme entre botões */
+            }
+
+            /* Estilo comum para todos os botões */
+            .btn-group .btn {
+                flex: 1; /* Cresce igualmente dentro do grupo */
+                margin: 0 6px; /* Espaçamento entre botões */
+                border-radius: 10px; /* Cantos arredondados */
+            }
+
+            /* Fazer com que o botão inteiro tenha bordas arredondadas */
+            .btn-group>.btn-group:not(:last-child)>.btn,
+            .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            .btn-group>.btn-group:not(:first-child)>.btn,
+            .btn-group>.btn:not(:first-child) {
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            /* Aumentar o tamanho da fonte dos botões */
+            .btn-lg {
+                font-size: 18px;
+                font-weight: bold; /* Texto em negrito */
+            }
+
+            /* Estilo do botão "Entrar" */
+            .btn-primary {
+                background-color: #120A8F; /* Cor de fundo */
+                border-color: #120A8F; /* Cor da borda */
+            }
+
+            .btn-primary:hover {
+                background-color: #190dbb; /* Cor de fundo ao passar o mouse */
+                border-color: #190dbb; /* Cor da borda ao passar o mouse */
+            }
+
+            /* Estilo do botão "Cadastre-se Grátis" */
+            .btn-secondary {
+                background-color: rgba(250, 250, 250, 0.75); /* Cor de fundo com opacidade */
+                color: #120A8F; /* Cor do texto */
+                border-color: #120A8F; /* Cor da borda */
+            }
+
+            .btn-secondary:hover {
+                background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+                color: #120A8F; /* Cor do texto ao passar o mouse */
+                border-color: #120A8F; /* Cor da borda ao passar o mouse */
+            }
+
+            /* Tamanho menor da fonte dos botões em telas menores que 768px */
+            @media (max-width: 768px) {
+                .btn-lg {
+                    font-size: 13px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Formulário de login -->
+            <div id="login-form" class="col-md-6 mx-auto form-container">
+                <h2 class="text-center">Login</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control input-lg" id="email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control input-lg" id="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-sm">Entrar</button>
+                        <button type="button" class="btn btn-secondary btn-lg btn-sm" id="cadastro-btn">Cadastre-se Grátis</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Formulário de cadastro (inicialmente oculto) -->
+            <div id="cadastro-form" class="col-md-6 mx-auto form-container">
+                <h2 class="text-center">Cadastro</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control input-lg" id="nome" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastro-email">Email:</label>
+                        <input type="email" class="form-control input-lg" id="cadastro-email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastro-senha">Senha:</label>
+                        <input type="password" class="form-control input-lg" id="cadastro-senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-senha">Confirma Senha:</label>
+                        <input type="password" class="form-control input-lg" id="confirm-senha" placeholder="Confirme sua senha" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-lg">Cadastrar</button>
+                        <button type="button" class="btn btn-secondary btn-lg" id="voltar-btn">Voltar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scripts JavaScript -->
+        <script>
+            // Evento de clique no botão "Cadastre-se Grátis" para exibir o formulário de cadastro
+            document.getElementById("cadastro-btn").addEventListener("click", function() {
+                document.getElementById("login-form").style.display = "none"; // Oculta o formulário de login
+                document.getElementById("cadastro-form").style.display = "block"; // Exibe o formulário de cadastro
+                document.title = "Tela de Cadastro"; // Atualiza o título da página
+            });
+
+            // Evento de clique no botão "Voltar" para retornar ao formulário de login
+            document.getElementById("voltar-btn").addEventListener("click", function() {
+                document.getElementById("cadastro-form").style.display = "none"; // Oculta o formulário de cadastro
+                document.getElementById("login-form").style.display = "block"; // Exibe o formulário de login
+                document.title = "Tela de Login"; // Atualiza o título da página
+            });
+        </script>
+
+        <!-- Scripts JavaScript do Bootstrap e dependências -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
