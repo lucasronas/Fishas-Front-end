@@ -16,6 +16,11 @@
             text-align: center;
         }
 
+        .form-group {
+            margin-left: 20px; /* Adicione margem à esquerda */
+            margin-right: 20px; /* Adicione margem à direita */
+        }
+
         /* Estilos para o rodapé */
         footer {
             background-color: red;
@@ -121,10 +126,11 @@
                         <div class="ficha">
                             <h4>Status</h4>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="forcaStatus">Força (For):</label>
-                                        <select class="form-control" id="forcaStatus">
+                                        <label for="forcaStatus">Força(For):</label>
+                                        <select id="forcaStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -134,10 +140,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="destrezaStatus">Destreza (Dez):</label>
-                                        <select class="form-control" id="destrezaStatus">
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 90px;">
+                                        <label for="destrezaStatus">Destreza(Dez):</label>
+                                        <select id="destrezaStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -147,10 +154,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="constituicaoStatus">Constituição (Con):</label>
-                                        <select class="form-control" id="constituicaoStatus">
+                                        <label for="constituicaoStatus">Constituição(Con):</label>
+                                        <select id="constituicaoStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -160,10 +168,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="inteligenciaStatus">Inteligência (Int):</label>
-                                        <select class="form-control" id="inteligenciaStatus">
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 90px;">
+                                        <label for="inteligenciaStatus">Inteligência(Int):</label>
+                                        <select id="inteligenciaStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -173,10 +182,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="sabedoriaStatus">Sabedoria (Sab):</label>
-                                        <select class="form-control" id="sabedoriaStatus">
+                                <div class="col-md-6">
+                                    <div class="form-group" >
+                                        <label for="sabedoriaStatus">Sabedoria(Sab):</label>
+                                        <select id="sabedoriaStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -186,10 +196,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="carismaStatus">Carisma (Car):</label>
-                                        <select class="form-control" id="carismaStatus">
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 90px;">
+                                        <label for="carismaStatus">Carisma(Car):</label>
+                                        <select id="carismaStatus" class="attribute-select" onchange="updateOptions(this)">
+                                            <option value="">Selecione</option>
                                             <option value="15">15</option>
                                             <option value="14">14</option>
                                             <option value="13">13</option>
@@ -201,6 +212,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <!-- Seção Equipamentos Iniciais -->
+                    <div class="form-group">
+                        <label for="equipamentosIniciais">Equipamentos Iniciais:</label>
+                        <select class="form-control" id="equipamentosIniciais">
+                            <option value="">Escolha uma classe primeiro</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -231,6 +249,26 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selects = document.querySelectorAll('select');
+            let selectedValues = {};
+
+            selects.forEach((select) => {
+                select.addEventListener('change', function () {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const selectedValue = selectedOption.value;
+
+                    // Verifica se o valor já foi selecionado
+                    if (selectedValues[selectedValue] > 1) {
+                        alert('Este valor já foi selecionado em outro atributo. Escolha outro valor.');
+                        this.selectedIndex = 0; // Volta para a opção padrão
+                    } else {
+                        // Atualiza a contagem para o valor selecionado
+                        selectedValues[selectedValue] = (selectedValues[selectedValue] || 0) + 1;
+                    }
+                });
+            });
+        });
         // Função para habilitar ou desabilitar as opções de sub-raça com base na raça selecionada
         document.getElementById('racaPersonagem').addEventListener('change', function() {
             const subRacaSelect = document.getElementById('subRacaPersonagem');
@@ -305,6 +343,26 @@
             }
         });
 
+        function updateOptions(changedSelect) {
+            const selects = document.querySelectorAll('.attribute-select');
+
+            selects.forEach(select => {
+                if (select !== changedSelect) {
+                    for (let i = 0; i < select.options.length; i++) {
+                        select.options[i].disabled = false;
+                    }
+                }
+            });
+
+            const selectedValues = Array.from(selects, s => s.value);
+            selects.forEach(select => {
+                select.querySelectorAll('option').forEach(option => {
+                    if (selectedValues.filter(value => value === option.value).length > 0) {
+                        option.disabled = true;
+                    }
+                });
+            });
+        }
         // Função para habilitar ou desabilitar as opções de antecedente de classe com base na classe selecionada
         document.getElementById('classePersonagem').addEventListener('change', function() {
             const antecedenteSelect = document.getElementById('antecedenteClasse');
@@ -347,6 +405,39 @@
                 antecedenteSelect.disabled = true;
             }
         });
+
+        function atualizarEquipamentos() {
+            const classeSelecionada = document.getElementById('classePersonagem').value;
+            const equipamentosSelect = document.getElementById('equipamentosIniciais');
+            equipamentosSelect.innerHTML = ''; // Limpe as opções existentes
+    
+            switch (classeSelecionada) {
+                case 'Bárbaro':
+                    const opcoesBárbaro = [
+                        'Um machado grande ou qualquer arma marcial corpo-a-corpo.',
+                        'Dois machados de mão ou qualquer arma simples',
+                        'Um pacote de aventureiro e quatro azagaias'
+                    ];
+    
+                    opcoesBárbaro.forEach(function (opcao, index) {
+                        const option = document.createElement('option');
+                        option.value = index + 1;
+                        option.textContent = opcao;
+                        equipamentosSelect.appendChild(option);
+                    });
+                    break;
+                // Adicione casos para outras classes aqui
+                default:
+                    const optionDefault = document.createElement('option');
+                    optionDefault.value = '';
+                    optionDefault.textContent = 'Escolha uma classe primeiro';
+                    equipamentosSelect.appendChild(optionDefault);
+                    break;
+            }
+        }
+    
+        // Chame a função quando a classe do personagem é alterada
+        document.getElementById('classePersonagem').addEventListener('change', atualizarEquipamentos);
     </script>
     
     <!-- Adicione a linkagem para o Bootstrap JS (opcional) -->
