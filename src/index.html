@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/style.css">
+    <title>Fishas</title>
+</head>
+<body>
+    <div class="full">
+        <div class="header">
+            <div class="logo">
+                <img src="./img/logo_site 1.svg" alt="Fishas">
+                <a href="index.html">Fishas</a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html"><img src="./img/botao-home.png" alt="home"> Home</a></li>
+                    <li><a href="#"><img src="./img/docs.png" alt="sobre"> Sobre</a></li>
+                    <li id="buttonLogin"><a href="./Login_Cadastro/index.html"><img src="./img/contorno-da-seta-de-login.png" alt="login" id="imgLogin"> Login</a></li>
+                    <li id="buttonLogout" style="display: none"><a href="#" onclick="sair()">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            <div class="title">
+                <h1>Fishas: Desperte seu Personagem de RPG</h1>
+                <label>Transformando novatos em heróis em pouco tempo!</label>
+            </div>
+            <div class="livros" id="livros">
+                <button class="livroConteiner" onmouseover="mudarDeD()" onmouseout="restaurarCores()">
+                    <h1>Dungeons & Dragons 5e (D&D)</h1>
+                    <img class="img" src="./img/DnD_Icon.png" alt="Dungeons & Dragons 5e">
+                </button>
+                <button class="livroConteiner" onmouseover="mudarCoC()" onmouseout="restaurarCores()">
+                    <h1>Call of Cthulhu 7e (CoC)</h1>
+                    <img class="img" src="./img/CoC_Icon.png" alt="Call of Cthulhu 7e">
+                </button>
+                <button class="livroConteiner" onmouseover="mudarDS()" onmouseout="restaurarCores()">
+                    <h1>Dark Souls RPG</h1>
+                    <img class="img" src="./img/Dark_Souls_Icon.png" alt="Dark Souls">
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <label>Fishas © 2023</label>
+        </div>
+    </div>
+
+    <script>
+        function mudarDeD() {
+            const header = document.querySelector('.header');
+            const footer = document.querySelector('.footer');
+            const conteudo = document.querySelector('.conteudo');
+
+            // Aplicar as transições CSS
+            header.style.transition = 'background-color 0.3s';
+            footer.style.transition = 'background-color 0.3s';
+            conteudo.style.transition = 'background-image 0.3s';
+
+            header.style.backgroundColor = '#DC0711';
+            footer.style.backgroundColor = '#DC0711';
+            conteudo.style.backgroundImage = "url(./img/D_D_Background.jpg)";
+        }
+
+        function mudarCoC() {
+            const header = document.querySelector('.header');
+            const footer = document.querySelector('.footer');
+            const conteudo = document.querySelector('.conteudo');
+
+            // Aplicar as transições CSS
+            header.style.transition = 'background-color 0.3s';
+            footer.style.transition = 'background-color 0.3s';
+            conteudo.style.transition = 'background-image 0.3s';
+
+            header.style.backgroundColor = '#234239';
+            footer.style.backgroundColor = '#234239';
+            conteudo.style.backgroundImage = "url(./img/Call_of_Cthulhu_Background.png)";
+        }
+
+        function mudarDS() {
+            const header = document.querySelector('.header');
+            const footer = document.querySelector('.footer');
+            const conteudo = document.querySelector('.conteudo');
+
+            // Aplicar as transições CSS
+            header.style.transition = 'background-color 0.3s';
+            footer.style.transition = 'background-color 0.3s';
+            conteudo.style.transition = 'background-image 0.33s';
+
+            header.style.backgroundColor = '#FF7F00';
+            footer.style.backgroundColor = '#FF7F00';
+            conteudo.style.backgroundImage = "url(./img/Dark_Souls.Backhground.jpg)";
+        }
+
+        function restaurarCores() {
+            const header = document.querySelector('.header');
+            const footer = document.querySelector('.footer');
+            const conteudo = document.querySelector('.conteudo');
+
+            // Remover as transições CSS
+            header.style.transition = 'background-color 0.3s';
+            footer.style.transition = 'background-color 0.3s';
+            conteudo.style.transition = 'background-image 0.3s';
+
+            header.style.backgroundColor = '#120a8d';
+            footer.style.backgroundColor = '#120a8d';
+            conteudo.style.backgroundImage = "url('https://mesaderpg.com.br/wp-content/uploads/2021/10/Rpg-de-Mesa.png)";
+        }
+//---------------------------------------------------------------------------------
+//----------------------------------------------------- Novo para mudar BTN--------
+//---------------------------------------------------------------------------------
+        function obterParametrosDaURL() {
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            return Object.fromEntries(urlSearchParams.entries());
+        }
+
+        // Obtém os parâmetros da URL
+        const parametros = obterParametrosDaURL();
+
+        const token = parametros.token
+
+        const url = "http://localhost:3000";
+
+        const requestLogin = {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        };
+
+        async function verificarStatusDeAutenticacao() {
+            try {
+                const resposta = await fetch(`${url}/token`, requestLogin); 
+
+                if (resposta.status === 200) {
+
+                    document.getElementById('buttonLogin').style.display = 'none';
+                    document.getElementById('buttonLogout').style.display = 'block';
+
+                } else {
+
+                    document.getElementById('buttonLogin').style.display = 'block';
+                    document.getElementById('buttonLogout').style.display = 'none';
+
+                }
+            } catch (erro) {
+                console.error('Erro ao verificar o status de autenticação:', erro);
+            }
+        }
+
+        // Função para desconectar o usuário
+        function sair() {
+            if (window.history.replaceState) {
+                const novaURL = window.location.pathname; // Mantém a parte do caminho da URL
+
+                window.history.replaceState({}, document.title, novaURL); // Remove o token da URL
+
+                window.location.reload();
+            }
+        }
+        // Chame a função verificarStatusDeAutenticacao quando a página é carregada
+        window.addEventListener('load', verificarStatusDeAutenticacao);
+
+        // Adicione um manipulador de evento de clique para o botão de logout
+        document.getElementById('buttonLogout').addEventListener('click', sair);
+
+//---------------------------------------------------------------------------------
+//----------------------------------------------------- Fim para mudar BTN--------
+//---------------------------------------------------------------------------------
+    </script>
+</body>
+</html>
