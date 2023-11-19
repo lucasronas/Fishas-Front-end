@@ -1,0 +1,53 @@
+/* Estilos para o cabeçalho */
+header {
+    background-color: red;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-left: 20px; /* Adicione margem à esquerda */
+    margin-right: 20px; /* Adicione margem à direita */
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilos para as fichas */
+.ficha {
+    border: none; /* Remova a borda */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(249, 249, 249, 0.8); /* Defina a transparência */
+    border-radius: 10px; /* Arredonde as bordas */
+}
+
+*{box-sizing: border-box; font-family: sans-serif}
+
+.form-check {
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+body {
+    /* Defina a imagem de fundo */
+    background-image: url('../../assets/d&d.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Defina uma altura mínima para cobrir o conteúdo */
+    min-height: 100vh;
+}
+
+.equip-label {
+    font-size: 18px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    color: #333; /* Cor do texto */
+    /* Adicione mais estilos conforme necessário */
+}
