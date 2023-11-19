@@ -8,41 +8,13 @@
     <!-- Adicione a linkagem para o Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <style>
-        /* Estilos para o cabeçalho */
-        header {
-            background-color: red;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-left: 20px; /* Adicione margem à esquerda */
-            margin-right: 20px; /* Adicione margem à direita */
-        }
-
-        /* Estilos para o rodapé */
-        footer {
-            background-color: red;
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Estilos para as fichas */
-        .ficha {
-            border: none; /* Remova a borda */
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: rgba(249, 249, 249, 0.8); /* Defina a transparência */
-            border-radius: 10px; /* Arredonde as bordas */
-        }
-    </style>
+    <link href="style.css" rel="stylesheet"  />
 </head>
 <body>
     <header class="bg-danger text-white">
-        <h1>Bem-vindo ao Meu Site</h1>
+        <h1>Guia de Criação de personagens d&d 5e</h1>
     </header>
-    
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-6">
@@ -216,9 +188,139 @@
                     <!-- Seção Equipamentos Iniciais -->
                     <div class="form-group">
                         <label for="equipamentosIniciais">Equipamentos Iniciais:</label>
-                        <select class="form-control" id="equipamentosIniciais">
-                            <option value="">Escolha uma classe primeiro</option>
-                        </select>
+                    
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="equipamento1a" name="equipamentosA">
+                                            <label class="form-check-label" for="equipamento1a">Equipamento 1</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="equipamento2a" name="equipamentosA">
+                                            <label class="form-check-label" for="equipamento2a">Equipamento 2</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="equipamento1b" name="equipamentosB">
+                                            <label class="form-check-label" for="equipamento1b">Equipamento 1</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="equipamento2b" name="equipamentosB">
+                                            <label class="form-check-label" for="equipamento2b">Equipamento 2</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                
+                    </div>   
+
+                    <!-- Seção Equipamentos do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="equipamentosAntecedente">Equipamentos do Antecedente:</h4>
+                        <div class="row">
+                            <div class="col-md-6" id="equipamentosA">
+                                <!-- Equipamentos A serão adicionados dinamicamente aqui -->
+                            </div>
+                            <div class="col-md-6" id="equipamentosB">
+                                <!-- Equipamentos B serão adicionados dinamicamente aqui -->
+                            </div>
+                        </div>
+                    </div>  
+                    
+                    <!-- Seção de Perícias -->
+                    <div class="form-group">
+                        <h4>Perícias:</h4>
+                        <div class="form-check" id="periciasContainer">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Acrobacia">
+                            <label class="form-check-label" for="Acrobacia">Acrobacia</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Arcanismo">
+                            <label class="form-check-label" for="Arcanismo">Arcanismo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="atletismo">
+                            <label class="form-check-label" for="atletismo">Atletismo</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Atuação">
+                            <label class="form-check-label" for="Atuação">Atuação</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Furtividade">
+                            <label class="form-check-label" for="Furtividade">Furtividade</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="História">
+                            <label class="form-check-label" for="História">História</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Intimidação">
+                            <label class="form-check-label" for="Intimidação">Intimidação</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Investigação">
+                            <label class="form-check-label" for="Investigação">Investigação</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Prestidigitação">
+                            <label class="form-check-label" for="Prestidigitação">Prestidigitação</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Medicina">
+                            <label class="form-check-label" for="Medicina">Medicina</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Natureza">
+                            <label class="form-check-label" for="Natureza">Natureza</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Percepção">
+                            <label class="form-check-label" for="Percepção">Percepção</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Persuasão">
+                            <label class="form-check-label" for="Persuasão">Persuasão</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Religião">
+                            <label class="form-check-label" for="Religião">Religião</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="pericia" class="form-check-input" id="Sobrevivência">
+                            <label class="form-check-label" for="Sobrevivência">Sobrevivência</label>
+                        </div>
+                    </div>
+
+                    <!-- Seção Ferramentas do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="proeficiencia">Ferramentas do Antecedente:</h4>
+                        <div class="row">
+                            <div class="col-md-6" id="ferramentasX">
+                                <!-- Ferramentas A serão adicionadas dinamicamente aqui -->
+                            </div>
+                            <div class="col-md-6" id="ferramentasY">
+                                <!-- Ferramentas B serão adicionadas dinamicamente aqui -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção Idiomas Extras do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="idiomasAntecedente">Idiomas Extras do Antecedente:</h4>
+                        <div class="row">
+                            <div class="col-md-6" id="idiomasExtrasA">
+                                <!-- Idiomas A serão adicionados dinamicamente aqui -->
+                            </div>
+                            <div class="col-md-6" id="idiomasExtrasB">
+                                <!-- Idiomas B serão adicionados dinamicamente aqui -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,204 +350,12 @@
         <p>&copy; 2023 Meu Site. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const selects = document.querySelectorAll('select');
-            let selectedValues = {};
-
-            selects.forEach((select) => {
-                select.addEventListener('change', function () {
-                    const selectedOption = this.options[this.selectedIndex];
-                    const selectedValue = selectedOption.value;
-
-                    // Verifica se o valor já foi selecionado
-                    if (selectedValues[selectedValue] > 1) {
-                        alert('Este valor já foi selecionado em outro atributo. Escolha outro valor.');
-                        this.selectedIndex = 0; // Volta para a opção padrão
-                    } else {
-                        // Atualiza a contagem para o valor selecionado
-                        selectedValues[selectedValue] = (selectedValues[selectedValue] || 0) + 1;
-                    }
-                });
-            });
-        });
-        // Função para habilitar ou desabilitar as opções de sub-raça com base na raça selecionada
-        document.getElementById('racaPersonagem').addEventListener('change', function() {
-            const subRacaSelect = document.getElementById('subRacaPersonagem');
-            const racaSelecionada = this.value;
-            
-            // Mapeamento de raças para sub-raças
-            const subRacas = {
-                'Anão': ['Anão da Colina', 'Anão da Montanha'],
-                'Elfo': ['Alto Elfo', 'Elfo da Floresta', 'Elfo Negro (Drow)'],
-                'Meio-Elfo': ['Não tem sub-raça'],
-                'Halfling': ['Pés Leves', 'Robusto'],
-                'Humanos': ['Não tem sub-raça'],
-                'Draconato': ['Não tem sub-raça'],
-                'Gnomo': ['Gnomo da Floresta', 'Gnomo das Rochas'],
-                'Meio-Orc': ['Não tem sub-raça'],
-                'Tieflings': ['Infernal', 'Abissal']
-            };
-            
-            // Habilitar ou desabilitar o campo de seleção da sub-raça
-            if (racaSelecionada in subRacas) {
-                const subRacasDaRaca = subRacas[racaSelecionada];
-                subRacaSelect.innerHTML = ''; // Limpar opções existentes
-                
-                if (subRacasDaRaca.length === 0) {
-                    subRacaSelect.disabled = true;
-                } else {
-                    subRacaSelect.disabled = false;
-                    subRacasDaRaca.forEach(function(subRaca) {
-                        const option = document.createElement('option');
-                        option.value = subRaca;
-                        option.textContent = subRaca;
-                        subRacaSelect.appendChild(option);
-                    });
-                }
-            } else {
-                subRacaSelect.innerHTML = '<option value="">Selecione uma raça primeiro</option>';
-                subRacaSelect.disabled = true;
-            }
-        });
-
-        // Função para habilitar ou desabilitar as opções de arquétipo de classe com base na classe selecionada
-        document.getElementById('classePersonagem').addEventListener('change', function() {
-            const arquetipoSelect = document.getElementById('arquetipoClasse');
-            const classeSelecionada = this.value;
-            
-            // Mapeamento de classes para arquétipos
-            const arquetipos = {
-                'Bruxo': ['Arquifada', 'Corruptor', 'Grande Antigo'],
-                'Clérigo': ['Conhecimento', 'Enganação', 'Guerra', 'Luz', 'Natureza', 'Tempestade', 'Vida'],
-                'Feiticeiro': ['Linhagem Dracônica', 'Magia Selvagem']
-            };
-            
-            // Habilitar ou desabilitar o campo de seleção do arquétipo de classe
-            if (classeSelecionada in arquetipos) {
-                const arquetiposDaClasse = arquetipos[classeSelecionada];
-                arquetipoSelect.innerHTML = ''; // Limpar opções existentes
-                
-                if (arquetiposDaClasse.length === 0) {
-                    arquetipoSelect.disabled = true;
-                } else {
-                    arquetipoSelect.disabled = false;
-                    arquetiposDaClasse.forEach(function(arquetipo) {
-                        const option = document.createElement('option');
-                        option.value = arquetipo;
-                        option.textContent = arquetipo;
-                        arquetipoSelect.appendChild(option);
-                    });
-                }
-            } else {
-                arquetipoSelect.innerHTML = '<option value="">Selecione uma classe primeiro</option>';
-                arquetipoSelect.disabled = true;
-            }
-        });
-
-        function updateOptions(changedSelect) {
-            const selects = document.querySelectorAll('.attribute-select');
-
-            selects.forEach(select => {
-                if (select !== changedSelect) {
-                    for (let i = 0; i < select.options.length; i++) {
-                        select.options[i].disabled = false;
-                    }
-                }
-            });
-
-            const selectedValues = Array.from(selects, s => s.value);
-            selects.forEach(select => {
-                select.querySelectorAll('option').forEach(option => {
-                    if (selectedValues.filter(value => value === option.value).length > 0) {
-                        option.disabled = true;
-                    }
-                });
-            });
-        }
-        // Função para habilitar ou desabilitar as opções de antecedente de classe com base na classe selecionada
-        document.getElementById('classePersonagem').addEventListener('change', function() {
-            const antecedenteSelect = document.getElementById('antecedenteClasse');
-            const classeSelecionada = this.value;
-            
-            // Mapeamento de classes para antecedentes
-            const antecedentes = {
-                'Bárbaro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Bardo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Bruxo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Clérigo': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Druida': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Feiticeiro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Guardião': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Guerreiro': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Ladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Mago': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Monge': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-                'Paladino': ['Acólito', 'Criminoso', 'Herói do Povo', 'Artesão de Guilda', 'Eremita', 'Nobre', 'Forasteiro', 'Marinheiro', 'Sábio', 'Soldado', 'Orfão'],
-            };
-            
-            // Habilitar ou desabilitar o campo de seleção do antecedente de classe
-            if (classeSelecionada in antecedentes) {
-                const antecedentesDaClasse = antecedentes[classeSelecionada];
-                antecedenteSelect.innerHTML = ''; // Limpar opções existentes
-                
-                if (antecedentesDaClasse.length === 0) {
-                    antecedenteSelect.disabled = true;
-                } else {
-                    antecedenteSelect.disabled = false;
-                    antecedentesDaClasse.forEach(function(antecedente) {
-                        const option = document.createElement('option');
-                        option.value = antecedente;
-                        option.textContent = antecedente;
-                        antecedenteSelect.appendChild(option);
-                    });
-                }
-            } else {
-                antecedenteSelect.innerHTML = '<option value="">Selecione uma classe primeiro</option>';
-                antecedenteSelect.disabled = true;
-            }
-        });
-
-        function atualizarEquipamentos() {
-            const classeSelecionada = document.getElementById('classePersonagem').value;
-            const equipamentosSelect = document.getElementById('equipamentosIniciais');
-            equipamentosSelect.innerHTML = ''; // Limpe as opções existentes
-    
-            switch (classeSelecionada) {
-                case 'Bárbaro':
-                    const opcoesBárbaro = [
-                        'Um machado grande ou qualquer arma marcial corpo-a-corpo.',
-                        'Dois machados de mão ou qualquer arma simples',
-                        'Um pacote de aventureiro e quatro azagaias'
-                    ];
-    
-                    opcoesBárbaro.forEach(function (opcao, index) {
-                        const option = document.createElement('option');
-                        option.value = index + 1;
-                        option.textContent = opcao;
-                        equipamentosSelect.appendChild(option);
-                    });
-                    break;
-                // Adicione casos para outras classes aqui
-                default:
-                    const optionDefault = document.createElement('option');
-                    optionDefault.value = '';
-                    optionDefault.textContent = 'Escolha uma classe primeiro';
-                    equipamentosSelect.appendChild(optionDefault);
-                    break;
-            }
-        }
-    
-        // Chame a função quando a classe do personagem é alterada
-        document.getElementById('classePersonagem').addEventListener('change', atualizarEquipamentos);
-    </script>
+    <script src="script.js"></script>
     
     <!-- Adicione a linkagem para o Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
 
 
 
