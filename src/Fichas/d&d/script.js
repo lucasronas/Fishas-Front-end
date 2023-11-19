@@ -24,7 +24,14 @@
             Bardo: 3,
             Bruxo: 2,
             Clérigo: 2,
-            // Adicione os limites para as demais classes aqui
+            Druida: 2,
+            Feiticeiro: 2,
+            Guerreiro: 2,
+            Ladino: 4,
+            Mago: 2,
+            Paladino: 2,
+            Patrulheiro: 3,
+            Monge: 2
         };
         
         // Função para habilitar ou desabilitar as opções de sub-raça com base na raça selecionada
@@ -99,6 +106,71 @@
                 arquetipoSelect.innerHTML = '<option value="">Selecione uma classe primeiro</option>';
                 arquetipoSelect.disabled = true;
             }
+
+            // Função para atualizar as habilidades (perícias) com base na classe selecionada
+            function updateSkills() {
+                // Obtém a classe selecionada do elemento com ID 'classePersonagem'
+                const selectedClass = document.getElementById('classePersonagem').value;
+                
+                // Obtém o contêiner de habilidades com ID 'periciasContainer'
+                const skillsContainer = document.getElementById('periciasContainer');
+                
+                // Obtém o limite de habilidades para a classe selecionada, ou 0 se não estiver definido
+                const skillsLimit = limitePericias[selectedClass] || 0;
+                
+                // Obtém a lista de habilidades disponíveis para a classe selecionada, ou uma lista vazia se não estiver definida
+                const availableSkills = periciasclasses[selectedClass] || [];
+
+                // Limpa as habilidades existentes no contêiner
+                skillsContainer.innerHTML = '';
+
+                // Cria checkboxes para cada habilidade disponível
+                availableSkills.forEach(skill => {
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.name = 'pericia';
+                    checkbox.value = skill;
+                    checkbox.id = skill.toLowerCase().replace(/ /g, ''); // Remove espaços e torna minúsculo para IDs únicos
+
+                    const label = document.createElement('label');
+                    label.htmlFor = checkbox.id;
+                    label.appendChild(document.createTextNode(skill));
+
+                    // Adiciona checkbox, label e uma quebra de linha ao contêiner de habilidades
+                    skillsContainer.appendChild(checkbox);
+                    skillsContainer.appendChild(label);
+                    skillsContainer.appendChild(document.createElement('br'));
+                });
+
+                // Adiciona um contador para o número de habilidades selecionadas
+                const skillsCounter = document.createElement('p');
+                skillsCounter.innerHTML = `Perícias selecionadas: <span id="contador">0</span>/${skillsLimit}`;
+                skillsContainer.appendChild(skillsCounter);
+
+                // Adiciona ouvintes de eventos para a seleção de habilidades
+                const checkboxes = document.querySelectorAll('input[name="pericia"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', () => updateSkillsCounter(skillsCounter, checkboxes, skillsLimit));
+                });
+            }
+
+            // Função para atualizar o contador de habilidades
+            function updateSkillsCounter(counterElement, checkboxes, limit) {
+                // Obtém o número de habilidades selecionadas
+                const selectedSkills = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+                
+                // Atualiza o conteúdo do contador com o número de habilidades selecionadas
+                counterElement.innerHTML = `Perícias selecionadas: <span id="contador">${selectedSkills}</span>/${limit}`;
+
+                // Desabilita/ativa checkboxes com base no limite
+                checkboxes.forEach(checkbox => {
+                    checkbox.disabled = selectedSkills >= limit && !checkbox.checked;
+                });
+            }
+
+            // Aciona a função updateSkills para configurar o estado inicial
+            updateSkills();
+
         });
 
         function updateOptions(changedSelect) {
