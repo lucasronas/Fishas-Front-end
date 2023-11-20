@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site Vermelho</title>
+    
+    <!-- Adicione a linkagem para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="style.css" rel="stylesheet"  />
+</head>
+<body>
+    <header class="bg-danger text-white">
+        <h1>Guia de Criação de personagens d&d 5e</h1>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <!-- Ficha do Personagem 1 -->
+                <div class="ficha">
+                    <p>Caso tenha alguma dúvida basta clicar no ícone de "?"</p>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <!-- Campo de entrada para o nome -->
+                            <div class="form-group">
+                                <label for="nomePersonagem">Nome do Personagem:</label>
+                                <select class="form-control" id="racaPersonagem" disabled>
+                                    <option value="Anão">Mitra</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="racaPersonagem">Raça do Personagem:</label>
+                                <select class="form-control" id="racaPersonagem" disabled>
+                                    <option value="Anão">Elfo</option>
+                                </select>
+                            </div>
+
+                            <!-- Campo de seleção da sub-raça, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="subRacaPersonagem">Sub-Raça do Personagem:</label>
+                                <select class="form-control" id="subRacaPersonagem" disabled>
+                                    <option value="">Elfo da Floresta</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <!-- Selecione a classe do personagem -->
+                            <div class="form-group">
+                                <label for="classePersonagem">Classe do Personagem:</label>
+                                <select class="form-control" id="classePersonagem" disabled>
+                                    <option value="Bárbaro">Clerigo</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Campo de seleção do arquétipo de classe, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="arquetipoClasse">Arquétipo de Classe:</label>
+                                <select class="form-control" id="arquetipoClasse" disabled>
+                                    <option value="">Guerra</option>
+                                </select>
+                            </div>
+
+                            <!-- Campo de seleção do antecedente de classe, inicialmente desabilitado -->
+                            <div class="form-group">
+                                <label for="antecedenteClasse">Antecedente de Classe:</label>
+                                <select class="form-control" id="antecedenteClasse" disabled>
+                                    <option value="">Soldado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Adicione mais informações aqui -->
+                    <!-- Seção "Status" -->
+                    <div class="col-md-16">
+                        <div class="ficha">
+                            <h4>Status</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="forcaStatus">Força(For):</label>
+                                        <select id="forcaStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 50px;">
+                                        <label for="destrezaStatus">Destreza(Dez):</label>
+                                        <select id="destrezaStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">16</option><label>+3</label>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="constituicaoStatus">Constituição(Con):</label>
+                                        <select id="constituicaoStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">12</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 70px;">
+                                        <label for="inteligenciaStatus">Inteligência(Int):</label>
+                                        <select id="inteligenciaStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" >
+                                        <label for="sabedoriaStatus">Sabedoria(Sab):</label>
+                                        <select id="sabedoriaStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">16</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" style="margin-left: 70px;">
+                                        <label for="carismaStatus">Carisma(Car):</label>
+                                        <select id="carismaStatus" class="attribute-select" onchange="updateOptions(this)" disabled>
+                                            <option value="15">13</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Seção Equipamentos Iniciais -->
+                    <div class="form-group">
+                        <h4 for="equipamentosIniciais">Equipamentos Iniciais:</h4>
+                                <p>Martelo de Guerra</p>
+                                <p>Brunea</p>
+                                <p>Besta leve e 20 virotes</p>
+                                <p>Pacote de Sacerdote</p>
+                                <p>Um escudo e um símbolo sagrado</p>           
+                    </div>   
+
+                    <!-- Seção Equipamentos do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="equipamentosAntecedente">Equipamentos do Antecedente:</h4>
+                        <p>Uma insígnia de patente</p>
+                        <p>Uma lamina obtido de um inimigo caído</p>
+                        <p>Um conjunto de dados de osso ou baralho</p>
+                        <p>Um conjunto de roupas comuns</p>
+                        <p>Uma algibeira contendo 10 po</p>
+                    </div>  
+                    
+                    <!-- Seção de Perícias -->
+                    <div class="form-group">
+                        <h4>Perícias:</h4>
+                        <p>História</p>
+                        <p>Religião</p>
+                        <p>Atletismo</p>
+                        <p>Intimidação</p>
+                    </div>
+
+                    <!-- Seção Ferramentas do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="proeficiencia">Ferramentas do Antecedente:</h4>
+                            <p>Um tipo de kit de jogo, veículo (terrestre)</p>
+                        </div>
+                    </div>
+
+                    <!-- Seção Idiomas Extras do Antecedente -->
+                    <div class="form-group">
+                        <h4 for="idiomasAntecedente">Idiomas Extras do Antecedente:</h4>
+                        <div class="row">
+                            <div class="col-md-6" id="idiomasExtrasA">
+                                <!-- Idiomas A serão adicionados dinamicamente aqui -->
+                            </div>
+                            <div class="col-md-6" id="idiomasExtrasB">
+                                <!-- Idiomas B serão adicionados dinamicamente aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-danger text-white mt-4">
+        <p>&copy; 2023 Fishas. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
